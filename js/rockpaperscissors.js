@@ -1,6 +1,5 @@
 function computerPlay() {
-    /**
-     * Randomly choose a hand, either rock, paper, or scissors, and return it.
+    /**Randomly choose a hand, either rock, paper, or scissors, and return it.
      * @param none
      * @return {string} one of "Rock", "Paper", or "Scissors"
      */
@@ -34,7 +33,19 @@ function playRound(playerSelection, computerSelection) {
     }
 }
 
+function game() {
+    /**Play a 5 round game. 
+     * 
+     */
+
+    let playerSelection = prompt();
+}
+
+//test code
 let playerSelection = "rock";
 let computerSelection = computerPlay();
 console.log(computerSelection);
 console.log(playRound(playerSelection, computerSelection));
+
+//Call the main game function
+game();
