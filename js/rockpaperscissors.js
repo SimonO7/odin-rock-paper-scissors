@@ -16,20 +16,23 @@ function playRound(playerSelection, computerSelection) {
     /**Take the player's selection and the computer's selection, and compare who is the winner.
      * @param {string} playerSelection      string, the player's input
      * @param {string} computerSelection    string. the computer's selection
-     * @return {string} showing the result of the game and the winner.
+     * @return {Number} one of 1, 2, or 3, where:
+     *                  1 represents tie
+                        2 represents player wins
+                        3 represents player loses (computer wins)
      */
     
     //If tie, return tie message
     if (playerSelection === computerSelection) {
-        return `It's a tie. You both chose ${playerSelection}`;
+        return 1;
     }
     //Check for player winning conditions, and return winning message if player matches a winning condition
     else if ((playerSelection === "rock" && computerSelection === "scissors") || (playerSelection === "paper" && computerSelection === "rock") || (playerSelection === "scissors" && computerSelection === "paper")) {
-        return `You win! ${playerSelection} beats ${computerSelection}`;
+        return 2;
     }
     //If player does not match any winning conditions, return losing message
     else {
-        return `You lose! ${computerSelection} beats ${playerSelection}`;
+        return 3;
     }
 }
 
