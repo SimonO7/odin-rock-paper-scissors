@@ -42,27 +42,32 @@ function game() {
      * @param none
      * @return none
      */
-
+    //Set the scores
     let playerScore = 0
     let computerScore = 0;
+
+    //Begin the game
     for (let play = 0; play < 5; play++) {
         let playerSelection = prompt("Enter your selection (rock, paper, or scissors)")
+        
+        //Only attempt to convert to lowercase if the inputted string is not a false value
         if (playerSelection) {
             playerSelection = playerSelection.toLowerCase();
         }
+
         let computerSelection = computerPlay();
         let result = playRound(playerSelection, computerSelection);
         switch (result) {
-            //Result code "tie" = tie
+            //Result code "tie" == tie
             case "tie":
                 console.log(`It's a tie. You both chose ${playerSelection}`);
                 break;
-            //Result code "player" = player wins
+            //Result code "player" == player wins
             case "player":
                 console.log(`You win! ${playerSelection} beats ${computerSelection}`);
                 playerScore += 1;
                 break;
-            //Result code "computer" = computer wins
+            //Result code "computer" == computer wins
             case "computer":
                 console.log(`You lose! ${computerSelection} beats ${playerSelection}`);
                 computerScore += 1;
