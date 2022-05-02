@@ -37,14 +37,19 @@ function playRound(playerSelection, computerSelection) {
 }
 
 function game() {
-    /**Play a 5 round game. Keep track of the score and declare the winner after 5 rounds.
+    /**Play a 5 round game. 
+     * Keep track of the score and declare the winner after 5 rounds.
      * @param none
+     * @return none
      */
 
     let playerScore = 0
     let computerScore = 0;
     for (let play = 0; play < 5; play++) {
-        let playerSelection = prompt("Enter your selection (rock, paper, or scissors)").toLowerCase();
+        let playerSelection = prompt("Enter your selection (rock, paper, or scissors)")
+        if (playerSelection) {
+            playerSelection = playerSelection.toLowerCase();
+        }
         let computerSelection = computerPlay();
         let result = playRound(playerSelection, computerSelection);
         switch (result) {
