@@ -1,11 +1,11 @@
+//Create a list with elements "rock", "paper", and "scissors"
+const options = ["rock", "paper", "scissors"];
+
 function computerPlay() {
     /**Randomly choose a hand, either rock, paper, or scissors, and return it.
      * @param none
      * @return {string} one of "Rock", "Paper", or "Scissors"
      */
-
-    //Create a list with elements "rock", "paper", and "scissors"
-    const options = ["rock", "paper", "scissors"];
     //Generate a random number between 0 and 2. That will be the index of the element.
     const index = Math.floor(Math.random()*(options.length));
     //Return the element from that index.
@@ -50,14 +50,14 @@ function game() {
     for (let play = 0; play < 5; play++) {
         //Prompt the user for a valid input as long as the input isn't one of "rock", "paper", or "scissors"
         let playerSelection;
-        while ((playerSelection != "rock") || (playerSelection != "paper") || (playerSelection != "scissors")) {
+        while (!(options.includes(playerSelection))) {
             playerSelection = prompt("Enter your selection (rock, paper, or scissors)")
             //Only attempt to convert to lowercase if the inputted string is not a false value
             if (playerSelection) {
                 playerSelection = playerSelection.toLowerCase();
             }
             //If input is a valid input, continue to rest of the code
-            if ((playerSelection === "rock") || (playerSelection === "paper") || (playerSelection === "scissors")) {
+            if (options.includes(playerSelection)) {
                 break;
             }
             //Otherwise, display error and ask for input again
