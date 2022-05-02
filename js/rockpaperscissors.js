@@ -48,7 +48,7 @@ function game() {
 
     //Begin the game
     for (let play = 0; play < 5; play++) {
-        //Prompt the user for a valid input
+        //Prompt the user for a valid input as long as the input isn't one of "rock", "paper", or "scissors"
         let playerSelection;
         while ((playerSelection != "rock") || (playerSelection != "paper") || (playerSelection != "scissors")) {
             playerSelection = prompt("Enter your selection (rock, paper, or scissors)")
