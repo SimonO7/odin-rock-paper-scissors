@@ -22,33 +22,57 @@ function playRound(playerSelection, computerSelection) {
                         3 represents player loses (computer wins)
      */
     
-    //If tie, return tie message
+    //If tie, return tie
     if (playerSelection === computerSelection) {
         return 1;
     }
-    //Check for player winning conditions, and return winning message if player matches a winning condition
+    //Check for player winning conditions, and return winning code if player matches a winning condition
     else if ((playerSelection === "rock" && computerSelection === "scissors") || (playerSelection === "paper" && computerSelection === "rock") || (playerSelection === "scissors" && computerSelection === "paper")) {
         return 2;
     }
-    //If player does not match any winning conditions, return losing message
+    //If player does not match any winning conditions, return losing code
     else {
         return 3;
     }
 }
 
 function game() {
-    /**Play a 5 round game. 
-     * 
+    /**Play a 5 round game. Keep track of the score and declare the winner after 5 rounds.
+     * @param none
      */
 
-    let playerSelection = prompt();
-}
+    let playerScore = 0
+    let computerScore = 0;
+    for (let play = 0; play < 5; play++) {
+        let playerSelection = prompt("Enter your selection (rock, paper, or scissors)").toLowerCase();
+        let computerSelection = computerPlay();
+        let result = playRound(playerSelection, computerSelection);
+        switch (result) {
+            //Result code 1 = tie
+            case 1:
+                console.log(`It's a tie. You both chose ${playerSelection}`);
+                break;
+            //Result code 2 = player wins
+            case 2:
+                console.log(`You win! ${playerSelection} beats ${computerSelection}`);
+                playerScore += 1;
+                break;
+            //Result code 3 = computer wins
+            case 3:
+                console.log(`You lose! ${computerSelection} beats ${playerSelection}`);
+                computerScore += 1;
+                break;
+        }
+    }
+     //Check the scores after the 5 rounds
+     if (playerScore >= computerScore) {
+        console.log(`You win! Score is ${playerScore} - ${computerScore}`);
+    }
+    else {
+        console.log(`You lose! Score is ${playerScore} - ${computerScore}`);
+    }
 
-//test code
-let playerSelection = "rock";
-let computerSelection = computerPlay();
-console.log(computerSelection);
-console.log(playRound(playerSelection, computerSelection));
+}
 
 //Call the main game function
 game();
