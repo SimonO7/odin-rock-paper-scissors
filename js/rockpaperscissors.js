@@ -7,7 +7,7 @@ function computerPlay() {
     //Create a list with elements "rock", "paper", and "scissors"
     const options = ["rock", "paper", "scissors"];
     //Generate a random number between 0 and 2. That will be the index of the element.
-    const index = Math.floor(Math.random()*3);
+    const index = Math.floor(Math.random()*(options.length));
     //Return the element from that index.
     return options[index];
 }
@@ -16,23 +16,23 @@ function playRound(playerSelection, computerSelection) {
     /**Take the player's selection and the computer's selection, and compare who is the winner.
      * @param {string} playerSelection      string, the player's input
      * @param {string} computerSelection    string. the computer's selection
-     * @return {Number} one of 1, 2, or 3, where:
-     *                  1 represents tie
-                        2 represents player wins
-                        3 represents player loses (computer wins)
+     * @return {string} one of "tie", "player", or "computer", where:
+     *                  "tie" represents tie
+                        "player" represents player wins
+                        "computer" represents player loses (computer wins)
      */
     
     //If tie, return tie
     if (playerSelection === computerSelection) {
-        return 1;
+        return "tie";
     }
     //Check for player winning conditions, and return winning code if player matches a winning condition
     else if ((playerSelection === "rock" && computerSelection === "scissors") || (playerSelection === "paper" && computerSelection === "rock") || (playerSelection === "scissors" && computerSelection === "paper")) {
-        return 2;
+        return "player";
     }
     //If player does not match any winning conditions, return losing code
     else {
-        return 3;
+        return "computer";
     }
 }
 
@@ -48,17 +48,17 @@ function game() {
         let computerSelection = computerPlay();
         let result = playRound(playerSelection, computerSelection);
         switch (result) {
-            //Result code 1 = tie
-            case 1:
+            //Result code "tie" = tie
+            case "tie":
                 console.log(`It's a tie. You both chose ${playerSelection}`);
                 break;
-            //Result code 2 = player wins
-            case 2:
+            //Result code "player" = player wins
+            case "player":
                 console.log(`You win! ${playerSelection} beats ${computerSelection}`);
                 playerScore += 1;
                 break;
-            //Result code 3 = computer wins
-            case 3:
+            //Result code "computer" = computer wins
+            case "computer":
                 console.log(`You lose! ${computerSelection} beats ${playerSelection}`);
                 computerScore += 1;
                 break;
