@@ -1,4 +1,3 @@
-//Create a list with elements "rock", "paper", and "scissors"
 const options = ["rock", "paper", "scissors"];
 
 function computerPlay() {
@@ -6,9 +5,7 @@ function computerPlay() {
      * @param none
      * @return {string} one of "Rock", "Paper", or "Scissors"
      */
-    //Generate a random number between 0 and 2. That will be the index of the element.
     const index = Math.floor(Math.random()*(options.length));
-    //Return the element from that index.
     return options[index];
 }
 
