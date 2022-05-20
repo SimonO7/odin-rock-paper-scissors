@@ -47,20 +47,10 @@ function game() {
     for (let play = 0; play < 5; play++) {
         //Prompt the user for a valid input as long as the input isn't one of "rock", "paper", or "scissors"
         let playerSelection;
-        while (!(options.includes(playerSelection))) {
-            playerSelection = prompt("Enter your selection (rock, paper, or scissors)")
-            //Only attempt to convert to lowercase if the inputted string is not a false value
-            if (playerSelection) {
-                playerSelection = playerSelection.toLowerCase();
-            }
-            //If input is a valid input, continue to rest of the code
-            if (options.includes(playerSelection)) {
-                break;
-            }
-            //Otherwise, display error and ask for input again
-            else {
-                console.log("Invalid input. Please try again.");
-            }
+        playerSelection = prompt("Enter your selection (rock, paper, or scissors)")
+        //Only attempt to convert to lowercase if the inputted string is not a false value
+        if (playerSelection) {
+            playerSelection = playerSelection.toLowerCase();
         }
         let computerSelection = computerPlay();
         let result = playRound(playerSelection, computerSelection);
