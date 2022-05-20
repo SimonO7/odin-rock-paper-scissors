@@ -1,4 +1,7 @@
 const options = ["rock", "paper", "scissors"];
+let playerSelection;
+let playerScore = 0
+let computerScore = 0;
 
 function computerPlay() {
     /**Randomly choose a hand, either rock, paper, or scissors, and return it.
@@ -9,7 +12,7 @@ function computerPlay() {
     return options[index];
 }
 
-function playRound(playerSelection, computerSelection) {
+function compareHand(playerSelection, computerSelection) {
     /**Take the player's selection and the computer's selection, and compare who is the winner.
      * @param {string} playerSelection      string, the player's input
      * @param {string} computerSelection    string. the computer's selection
@@ -33,53 +36,43 @@ function playRound(playerSelection, computerSelection) {
     }
 }
 
-function game() {
-    /**Play a 5 round game. 
-     * Keep track of the score and declare the winner after 5 rounds.
-     * @param none
+function game(playerSelection) {
+    /**Take the player's selection and the computer's selection, and compare who is the winner.
+     * @param {string} playerSelection      string, the player's input
      * @return none
      */
-    //Set the scores
-    let playerScore = 0
-    let computerScore = 0;
-
-    //Begin the game
-    for (let play = 0; play < 5; play++) {
-        //Prompt the user for a valid input as long as the input isn't one of "rock", "paper", or "scissors"
-        let playerSelection;
-        playerSelection = prompt("Enter your selection (rock, paper, or scissors)")
-        //Only attempt to convert to lowercase if the inputted string is not a false value
-        if (playerSelection) {
-            playerSelection = playerSelection.toLowerCase();
-        }
-        let computerSelection = computerPlay();
-        let result = playRound(playerSelection, computerSelection);
-        switch (result) {
-            //Result code "tie" == tie
-            case "tie":
-                console.log(`It's a tie. You both chose ${playerSelection}`);
-                break;
-            //Result code "player" == player wins
-            case "player":
-                console.log(`You win! ${playerSelection} beats ${computerSelection}`);
-                playerScore += 1;
-                break;
-            //Result code "computer" == computer wins
-            case "computer":
-                console.log(`You lose! ${computerSelection} beats ${playerSelection}`);
-                computerScore += 1;
-                break;
-        }
+    const computerSelection = computerPlay();
+    const result = compareHand(playerSelection, computerSelection);
+    switch (result) {
+        //Result code "tie" == tie
+        case "tie":
+            console.log(`It's a tie. You both chose ${playerSelection}`);
+            break;
+        //Result code "player" == player wins
+        case "player":
+            console.log(`You win! ${playerSelection} beats ${computerSelection}`);
+            playerScore += 1;
+            break;
+        //Result code "computer" == computer wins
+        case "computer":
+            console.log(`You lose! ${computerSelection} beats ${playerSelection}`);
+            computerScore += 1;
+            break;
     }
-     //Check the scores after the 5 rounds
-     if (playerScore >= computerScore) {
-        console.log(`You win! Score is ${playerScore} - ${computerScore}`);
-    }
-    else {
-        console.log(`You lose! Score is ${playerScore} - ${computerScore}`);
-    }
-
 }
 
-//Call the main game function
-game();
+function playRound(event) {
+    game(event.target.id);
+    if (playerScore === 5 || computerScore === 5) {
+        if (playerScore >= computerScore) {
+            console.log(`You win! Score is ${playerScore} - ${computerScore}`);
+        }
+        else {
+            console.log(`You lose! Score is ${playerScore} - ${computerScore}`);
+        }
+    }
+}
+
+const buttons = document.querySelectorAll('button');
+buttons.forEach((button) => button.addEventListener('click', playRound));
+
