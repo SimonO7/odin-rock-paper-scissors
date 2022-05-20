@@ -36,8 +36,8 @@ function compareHand(playerSelection, computerSelection) {
     }
 }
 
-function game(playerSelection) {
-    /**Take the player's selection and the computer's selection, and compare who is the winner.
+function playRound(playerSelection) {
+    /**Play one round of rock paper scissors, and display and update the result and score of the round.
      * @param {string} playerSelection      string, the player's input
      * @return none
      */
@@ -61,8 +61,8 @@ function game(playerSelection) {
     }
 }
 
-function playRound(event) {
-    game(event.target.id);
+function game(event) {
+    playRound(event.target.id);
     if (playerScore === 5 || computerScore === 5) {
         if (playerScore >= computerScore) {
             console.log(`You win! Score is ${playerScore} - ${computerScore}`);
@@ -74,5 +74,5 @@ function playRound(event) {
 }
 
 const buttons = document.querySelectorAll('button');
-buttons.forEach((button) => button.addEventListener('click', playRound));
+buttons.forEach((button) => button.addEventListener('click', game));
 
