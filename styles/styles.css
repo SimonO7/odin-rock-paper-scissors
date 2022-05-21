@@ -1,0 +1,22 @@
+/*Style Sheet for Rock Paper Scissors page */
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+h1 {
+    /* border: 2px solid black; */
+    text-align: center;
+}
+
+.buttons {
+    display: flex;
+    flex-shrink: 0;
+    justify-content: center;
+}
+
+.displays {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
