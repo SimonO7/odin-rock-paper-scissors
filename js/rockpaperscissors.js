@@ -41,24 +41,27 @@ function playRound(playerSelection) {
      * @param {string} playerSelection      string, the player's input
      * @return none
      */
+    const resultsDisplay = document.querySelector('.result');
+    const scoreDisplay = document.querySelector('.score');
     const computerSelection = computerPlay();
     const result = compareHand(playerSelection, computerSelection);
     switch (result) {
         //Result code "tie" == tie
         case "tie":
-            console.log(`It's a tie. You both chose ${playerSelection}`);
+            resultsDisplay.textContent = `It's a tie. You both chose ${playerSelection}`;
             break;
         //Result code "player" == player wins
         case "player":
-            console.log(`You win! ${playerSelection} beats ${computerSelection}`);
+            resultsDisplay.textContent = `You win! ${playerSelection} beats ${computerSelection}`;
             playerScore += 1;
             break;
         //Result code "computer" == computer wins
         case "computer":
-            console.log(`You lose! ${computerSelection} beats ${playerSelection}`);
+            resultsDisplay.textContent = `You lose! ${computerSelection} beats ${playerSelection}`;
             computerScore += 1;
             break;
     }
+    scoreDisplay.textContent = `Player Score: ${playerScore}    Computer Score: ${computerScore}`
 }
 
 function game(event) {
