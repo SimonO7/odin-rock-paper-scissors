@@ -3,6 +3,10 @@ let playerSelection;
 let playerScore = 0
 let computerScore = 0;
 
+const resultsDisplay = document.querySelector('.result');
+const scoreDisplay = document.querySelector('.score');
+const finalResultDisplay = document.querySelector('.finalResult');
+
 function computerPlay() {
     /**Randomly choose a hand, either rock, paper, or scissors, and return it.
      * @param none
@@ -41,8 +45,6 @@ function playRound(playerSelection) {
      * @param {string} playerSelection      string, the player's input
      * @return none
      */
-    const resultsDisplay = document.querySelector('.result');
-    const scoreDisplay = document.querySelector('.score');
     const computerSelection = computerPlay();
     const result = compareHand(playerSelection, computerSelection);
     switch (result) {
@@ -68,10 +70,10 @@ function game(event) {
     playRound(event.target.id);
     if (playerScore === 5 || computerScore === 5) {
         if (playerScore >= computerScore) {
-            console.log(`You win! Score is ${playerScore} - ${computerScore}`);
+            finalResultDisplay.textContent = `You win! Score is ${playerScore} - ${computerScore}`;
         }
         else {
-            console.log(`You lose! Score is ${playerScore} - ${computerScore}`);
+            finalResultDisplay.textContent = `You lose! Score is ${playerScore} - ${computerScore}`;
         }
     }
 }
