@@ -6,6 +6,7 @@ let computerScore = 0;
 const resultsDisplay = document.querySelector('.result');
 const scoreDisplay = document.querySelector('.score');
 const finalResultDisplay = document.querySelector('.finalResult');
+const buttons = document.querySelectorAll('button');
 
 function computerPlay() {
     /**Randomly choose a hand, either rock, paper, or scissors, and return it.
@@ -70,14 +71,17 @@ function game(event) {
     playRound(event.target.id);
     if (playerScore === 5 || computerScore === 5) {
         if (playerScore >= computerScore) {
-            finalResultDisplay.textContent = `You win! Score is ${playerScore} - ${computerScore}`;
+            finalResultDisplay.textContent = "You win!";
+            buttons.forEach((button) => button.removeEventListener('click', game));
+            
         }
         else {
-            finalResultDisplay.textContent = `You lose! Score is ${playerScore} - ${computerScore}`;
+            finalResultDisplay.textContent = "You lose!";
+            buttons.forEach((button) => button.removeEventListener('click', game));
         }
     }
 }
 
-const buttons = document.querySelectorAll('button');
+
 buttons.forEach((button) => button.addEventListener('click', game));
 
