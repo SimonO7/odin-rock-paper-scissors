@@ -42,3 +42,7 @@ h1 {
     display: none;
 }
 
+img {
+    width: 100px;
+    height: 100px;
+}
