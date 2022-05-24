@@ -29,7 +29,7 @@ h1 {
 .scoreboard {
     display: flex;
     justify-content: center;
-    gap: 40px;
+    gap: 150px;
 }
 
 .scorecard {
@@ -51,4 +51,17 @@ h1 {
 
 #reset-button {
     text-align: center;
+}
+
+.selections {
+    display: flex;
+    justify-content: center;
+    gap: 70px;
+    margin-bottom: 20px;
+}
+
+#playerSelection,
+#computerSelection {
+    height: 150px;
+    width: 150px;
 }
