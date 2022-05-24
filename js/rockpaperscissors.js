@@ -8,7 +8,7 @@ const playerScoreDisplay = document.querySelector('#playerScore');
 const computerScoreDisplay = document.querySelector('#computerScore');
 const finalResultDisplay = document.querySelector('.finalResult');
 const buttons = document.querySelectorAll('.playable-buttons');
-const resetButton = document.querySelector('.reset-button')
+const resetButton = document.querySelector('#reset-button')
 
 function computerPlay() {
     /**Randomly choose a hand, either rock, paper, or scissors, and return it.
