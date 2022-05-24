@@ -9,7 +9,7 @@ const computerScoreDisplay = document.querySelector('#computerScore');
 const playerHandDisplay = document.querySelector('#playerSelection');
 const computerHandDisplay = document.querySelector('#computerSelection');
 const finalResultDisplay = document.querySelector('.finalResult');
-const buttons = document.querySelectorAll('.playable-buttons');
+const buttons = document.querySelectorAll('input');
 const resetButton = document.querySelector('#reset-button')
 
 function computerPlay() {
