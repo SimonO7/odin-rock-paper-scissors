@@ -113,7 +113,8 @@ function initializeGame() {
     /**Initialize the game by performing the following:
      * - Reset the scores
      * - Add the event listeners to buttons
-     * - Clear the hand selection displays and display the placeholder, and clear the results display
+     * - Clear the hand selection displays and display the placeholder, and clear the 
+     *      results display and display play instructions.
      * - Hide the "play again" button*/
     playerScore = 0;
     computerScore = 0;
