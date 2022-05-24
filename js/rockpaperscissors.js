@@ -4,7 +4,8 @@ let playerScore;
 let computerScore;
 
 const resultsDisplay = document.querySelector('.result');
-const scoreDisplay = document.querySelector('.score');
+const playerScoreDisplay = document.querySelector('#playerScore');
+const computerScoreDisplay = document.querySelector('#computerScore');
 const finalResultDisplay = document.querySelector('.finalResult');
 const buttons = document.querySelectorAll('.playable-buttons');
 const resetButton = document.querySelector('.reset-button')
@@ -67,7 +68,8 @@ function playRound(playerSelection) {
     }
 
     //Update the score display
-    scoreDisplay.textContent = `Player Score: ${playerScore}    Computer Score: ${computerScore}`;
+    playerScoreDisplay.textContent = playerScore;
+    computerScoreDisplay.textContent = computerScore;
 }
 
 function game(event) {
@@ -88,7 +90,8 @@ function initializeGame() {
     /**Initialize the game by resetting the scores and adding the event listeners to buttons */
     playerScore = 0;
     computerScore = 0;
-    scoreDisplay.textContent = `Player Score: ${playerScore}    Computer Score: ${computerScore}`;
+    playerScoreDisplay.textContent = playerScore;
+    computerScoreDisplay.textContent = computerScore;
     resultsDisplay.textContent = "";
     finalResultDisplay.textContent = "";
     buttons.forEach((button) => button.addEventListener('click', game));

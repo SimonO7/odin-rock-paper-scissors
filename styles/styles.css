@@ -1,4 +1,5 @@
 /*Style Sheet for Rock Paper Scissors page */
+@import url('https://fonts.googleapis.com/css2?family=Iceland&display=swap');
 
 body {
     font-family: Arial, Helvetica, sans-serif;
@@ -18,7 +19,26 @@ h1 {
     flex-direction: column;
     align-items: center;
 }
+.scoreboard {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+}
+
+.scorecard {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: 'Iceland', cursive;
+    font-size: 24px;
+}
+
+#playerScore,
+#computerScore {
+    font-size: 60px;
+}
 
 .hide {
     display: none;
 }
+
