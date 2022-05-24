@@ -46,7 +46,11 @@ function compareHand(playerSelection, computerSelection) {
 }
 
 function displayHand(selection, elementToUpdate) {
-    //show the appropriate image based on the hand selection
+    /**Display the hand selection on the page
+     * @param {string} selection    The hand selection chosen
+     * @param {string} elementToUpdate  The name of the element to update
+     * @return none
+     */
     switch (selection) {
         case "rock":
             elementToUpdate.setAttribute("src", "./images/rock.png");
@@ -106,7 +110,11 @@ function game(event) {
 }
 
 function initializeGame() {
-    /**Initialize the game by resetting the scores and adding the event listeners to buttons */
+    /**Initialize the game by performing the following:
+     * - Reset the scores
+     * - Add the event listeners to buttons
+     * - Clear the hand selection displays and display the placeholder, and clear the results display
+     * - Hide the "play again" button*/
     playerScore = 0;
     computerScore = 0;
     playerScoreDisplay.textContent = playerScore;
