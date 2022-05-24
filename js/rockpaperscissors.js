@@ -1,7 +1,7 @@
 const options = ["rock", "paper", "scissors"];
 let playerSelection;
-let playerScore = 0
-let computerScore = 0;
+let playerScore;
+let computerScore;
 
 const resultsDisplay = document.querySelector('.result');
 const scoreDisplay = document.querySelector('.score');
@@ -72,13 +72,11 @@ function game(event) {
     if (playerScore === 5 || computerScore === 5) {
         if (playerScore >= computerScore) {
             finalResultDisplay.textContent = "You win!";
-            buttons.forEach((button) => button.removeEventListener('click', game));
-            
         }
         else {
             finalResultDisplay.textContent = "You lose!";
-            buttons.forEach((button) => button.removeEventListener('click', game));
         }
+        buttons.forEach((button) => button.removeEventListener('click', game));
     }
 }
 
