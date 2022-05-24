@@ -7,7 +7,7 @@ const resultsDisplay = document.querySelector('.result');
 const scoreDisplay = document.querySelector('.score');
 const finalResultDisplay = document.querySelector('.finalResult');
 const buttons = document.querySelectorAll('.playable-buttons');
-const resetButton = document.querySelector('#reset-button')
+const resetButton = document.querySelector('.reset-button')
 
 function computerPlay() {
     /**Randomly choose a hand, either rock, paper, or scissors, and return it.
@@ -73,7 +73,8 @@ function playRound(playerSelection) {
 function game(event) {
     playRound(event.target.id);
     if (playerScore === 5 || computerScore === 5) {
-        resetButton.classList.toggle('hide');
+        resetButton.classList.add('playable-buttons');
+        resetButton.classList.remove('hide');
         if (playerScore >= computerScore) {
             finalResultDisplay.textContent = "You win!";
         }
