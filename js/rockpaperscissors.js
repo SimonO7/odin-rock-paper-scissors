@@ -73,7 +73,6 @@ function playRound(playerSelection) {
 function game(event) {
     playRound(event.target.id);
     if (playerScore === 5 || computerScore === 5) {
-        resetButton.classList.add('playable-buttons');
         resetButton.classList.remove('hide');
         if (playerScore >= computerScore) {
             finalResultDisplay.textContent = "You win!";

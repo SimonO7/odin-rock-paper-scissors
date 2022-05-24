@@ -10,7 +10,6 @@ h1 {
 
 .playable-buttons {
     display: flex;
-    flex-shrink: 0;
     justify-content: center;
 }
 
