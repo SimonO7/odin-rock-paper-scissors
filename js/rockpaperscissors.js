@@ -6,6 +6,8 @@ let computerScore;
 const resultsDisplay = document.querySelector('.result');
 const playerScoreDisplay = document.querySelector('#playerScore');
 const computerScoreDisplay = document.querySelector('#computerScore');
+const playerHandDisplay = document.querySelector('#playerSelection');
+const computerHandDisplay = document.querySelector('#computerSelection');
 const finalResultDisplay = document.querySelector('.finalResult');
 const buttons = document.querySelectorAll('.playable-buttons');
 const resetButton = document.querySelector('#reset-button')
@@ -43,12 +45,29 @@ function compareHand(playerSelection, computerSelection) {
     }
 }
 
+function displayHand(selection, elementToUpdate) {
+    //show the appropriate image based on the hand selection
+    switch (selection) {
+        case "rock":
+            elementToUpdate.setAttribute("src", "./images/rock.png");
+            break;
+        case "paper":
+            elementToUpdate.setAttribute("src", "./images/paper.png");
+            break;
+        case "scissors":
+            elementToUpdate.setAttribute("src", "./images/scissors.png");
+            break;
+    }
+}
+
 function playRound(playerSelection) {
     /**Play one round of rock paper scissors, and display and update the result and score of the round.
      * @param {string} playerSelection      string, the player's input
      * @return none
      */
     const computerSelection = computerPlay();
+    displayHand(playerSelection, playerHandDisplay);
+    displayHand(computerSelection, computerHandDisplay);
     const result = compareHand(playerSelection, computerSelection);
     switch (result) {
         //Result code "tie" == tie
@@ -92,6 +111,8 @@ function initializeGame() {
     computerScore = 0;
     playerScoreDisplay.textContent = playerScore;
     computerScoreDisplay.textContent = computerScore;
+    playerHandDisplay.setAttribute("src", "./images/question-mark.png");
+    computerHandDisplay.setAttribute("src", "./images/question-mark.png"); 
     resultsDisplay.textContent = "";
     finalResultDisplay.textContent = "";
     buttons.forEach((button) => button.addEventListener('click', game));
