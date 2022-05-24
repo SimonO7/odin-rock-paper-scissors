@@ -121,7 +121,7 @@ function initializeGame() {
     computerScoreDisplay.textContent = computerScore;
     playerHandDisplay.setAttribute("src", "./images/question-mark.png");
     computerHandDisplay.setAttribute("src", "./images/question-mark.png"); 
-    resultsDisplay.textContent = "";
+    resultsDisplay.textContent = "Choose your hand below";
     finalResultDisplay.textContent = "";
     buttons.forEach((button) => button.addEventListener('click', game));
     resetButton.classList.add('hide');
