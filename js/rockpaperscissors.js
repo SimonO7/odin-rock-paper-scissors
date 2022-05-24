@@ -6,7 +6,8 @@ let computerScore;
 const resultsDisplay = document.querySelector('.result');
 const scoreDisplay = document.querySelector('.score');
 const finalResultDisplay = document.querySelector('.finalResult');
-const buttons = document.querySelectorAll('button');
+const buttons = document.querySelectorAll('.playable-buttons');
+const resetButton = document.querySelector('#reset-button')
 
 function computerPlay() {
     /**Randomly choose a hand, either rock, paper, or scissors, and return it.
@@ -64,12 +65,15 @@ function playRound(playerSelection) {
             computerScore += 1;
             break;
     }
-    scoreDisplay.textContent = `Player Score: ${playerScore}    Computer Score: ${computerScore}`
+
+    //Update the score display
+    scoreDisplay.textContent = `Player Score: ${playerScore}    Computer Score: ${computerScore}`;
 }
 
 function game(event) {
     playRound(event.target.id);
     if (playerScore === 5 || computerScore === 5) {
+        resetButton.classList.toggle('hide');
         if (playerScore >= computerScore) {
             finalResultDisplay.textContent = "You win!";
         }
@@ -80,6 +84,19 @@ function game(event) {
     }
 }
 
+function initializeGame() {
+    /**Initialize the game by resetting the scores and adding the event listeners to buttons */
+    playerScore = 0;
+    computerScore = 0;
+    scoreDisplay.textContent = `Player Score: ${playerScore}    Computer Score: ${computerScore}`;
+    resultsDisplay.textContent = "";
+    finalResultDisplay.textContent = "";
+    buttons.forEach((button) => button.addEventListener('click', game));
+    resetButton.classList.add('hide');
+}
 
-buttons.forEach((button) => button.addEventListener('click', game));
+resetButton.addEventListener('click', initializeGame);
+initializeGame();
+
+
 
