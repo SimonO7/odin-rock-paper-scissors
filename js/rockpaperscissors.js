@@ -51,15 +51,24 @@ function displayHand(selection, elementToUpdate) {
      * @param {string} elementToUpdate  The name of the element to update
      * @return none
      */
-    switch (selection) {
-        case "rock":
-            elementToUpdate.setAttribute("src", "./images/rock.png");
+    switch (true) {
+        case selection === "rock" && elementToUpdate === playerHandDisplay:
+            elementToUpdate.setAttribute("src", "./images/rock-r.png");
             break;
-        case "paper":
-            elementToUpdate.setAttribute("src", "./images/paper.png");
+        case selection === "paper" && elementToUpdate === playerHandDisplay:
+            elementToUpdate.setAttribute("src", "./images/paper-r.png");
             break;
-        case "scissors":
-            elementToUpdate.setAttribute("src", "./images/scissors.png");
+        case selection === "scissors" && elementToUpdate === playerHandDisplay:
+            elementToUpdate.setAttribute("src", "./images/scissors-r.png");
+            break;
+        case selection === "rock" && elementToUpdate === computerHandDisplay:
+            elementToUpdate.setAttribute("src", "./images/rock-l.png");
+            break;
+        case selection === "paper" && elementToUpdate === computerHandDisplay:
+            elementToUpdate.setAttribute("src", "./images/paper-l.png");
+            break;
+        case selection === "scissors" && elementToUpdate === computerHandDisplay:
+            elementToUpdate.setAttribute("src", "./images/scissors-l.png");
             break;
     }
 }
