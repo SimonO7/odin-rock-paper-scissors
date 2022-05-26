@@ -1,4 +1,4 @@
-const options = ["rock", "paper", "scissors"];
+const options = ["Rock", "Paper", "Scissors"];
 let playerSelection;
 let playerScore;
 let computerScore;
@@ -38,7 +38,7 @@ function compareHand(playerSelection, computerSelection) {
         return "tie";
     }
     //Check for player winning conditions, and return winning code if player matches a winning condition
-    else if ((playerSelection === "rock" && computerSelection === "scissors") || (playerSelection === "paper" && computerSelection === "rock") || (playerSelection === "scissors" && computerSelection === "paper")) {
+    else if ((playerSelection === "Rock" && computerSelection === "Scissors") || (playerSelection === "Paper" && computerSelection === "Rock") || (playerSelection === "Scissors" && computerSelection === "Paper")) {
         return "player";
     }
     //If player does not match any winning conditions, return losing code
@@ -54,22 +54,22 @@ function displayHand(selection, elementToUpdate) {
      * @return none
      */
     switch (true) {
-        case selection === "rock" && elementToUpdate === playerHandDisplay:
+        case selection === "Rock" && elementToUpdate === playerHandDisplay:
             elementToUpdate.setAttribute("src", "./images/rock-r.png");
             break;
-        case selection === "paper" && elementToUpdate === playerHandDisplay:
+        case selection === "Paper" && elementToUpdate === playerHandDisplay:
             elementToUpdate.setAttribute("src", "./images/paper-r.png");
             break;
-        case selection === "scissors" && elementToUpdate === playerHandDisplay:
+        case selection === "Scissors" && elementToUpdate === playerHandDisplay:
             elementToUpdate.setAttribute("src", "./images/scissors-r.png");
             break;
-        case selection === "rock" && elementToUpdate === computerHandDisplay:
+        case selection === "Rock" && elementToUpdate === computerHandDisplay:
             elementToUpdate.setAttribute("src", "./images/rock-l.png");
             break;
-        case selection === "paper" && elementToUpdate === computerHandDisplay:
+        case selection === "Paper" && elementToUpdate === computerHandDisplay:
             elementToUpdate.setAttribute("src", "./images/paper-l.png");
             break;
-        case selection === "scissors" && elementToUpdate === computerHandDisplay:
+        case selection === "Scissors" && elementToUpdate === computerHandDisplay:
             elementToUpdate.setAttribute("src", "./images/scissors-l.png");
             break;
     }
