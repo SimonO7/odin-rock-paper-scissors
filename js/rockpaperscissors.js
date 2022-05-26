@@ -2,6 +2,7 @@ const options = ["rock", "paper", "scissors"];
 let playerSelection;
 let playerScore;
 let computerScore;
+let round;
 
 const resultsDisplay = document.querySelector('.result');
 const playerScoreDisplay = document.querySelector('#playerScore');
@@ -10,7 +11,8 @@ const playerHandDisplay = document.querySelector('#playerSelection');
 const computerHandDisplay = document.querySelector('#computerSelection');
 const finalResultDisplay = document.querySelector('.finalResult');
 const buttons = document.querySelectorAll('input');
-const resetButton = document.querySelector('#reset-button')
+const resetButton = document.querySelector('#reset-button');
+const roundCounter = document.querySelector('#round');
 
 function computerPlay() {
     /**Randomly choose a hand, either rock, paper, or scissors, and return it.
@@ -99,9 +101,13 @@ function playRound(playerSelection) {
             break;
     }
 
-    //Update the score display
+    //Update the score counter display
     playerScoreDisplay.textContent = playerScore;
     computerScoreDisplay.textContent = computerScore;
+
+    //Update the rounds counter display
+    round += 1;
+    roundCounter.textContent = round;
 }
 
 function game(event) {
@@ -121,21 +127,30 @@ function game(event) {
 }
 
 function initializeGame() {
-    /**Initialize the game by performing the following:
-     * - Reset the scores
-     * - Add the event listeners to buttons
-     * - Clear the hand selection displays and display the placeholder, and clear the 
-     *      results display and display play instructions.
-     * - Hide the "play again" button*/
+    /**Initialize the game by setting up the counters and buttons
+     * @param none
+     * @return none
+     * */
+
+    //Reset the scores and round counter
     playerScore = 0;
     computerScore = 0;
+    round = 0;
     playerScoreDisplay.textContent = playerScore;
     computerScoreDisplay.textContent = computerScore;
+    roundCounter.textContent = round;
+
+    //Clear the hand selection displays and display the placeholder, 
+    //  and clear the results display and display play instructions.
     playerHandDisplay.setAttribute("src", "./images/question-mark.png");
     computerHandDisplay.setAttribute("src", "./images/question-mark.png"); 
     resultsDisplay.textContent = "Choose your hand below";
     finalResultDisplay.textContent = "";
+
+    //Add the event listeners to buttons
     buttons.forEach((button) => button.addEventListener('click', game));
+
+    //Hide the "play again" button
     resetButton.classList.add('hide');
 }
 
