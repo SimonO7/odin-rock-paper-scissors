@@ -85,16 +85,16 @@ function playRound(playerSelection) {
     switch (result) {
         //Result code "tie" == tie
         case "tie":
-            resultsDisplay.textContent = `It's a tie. You both chose ${playerSelection}`;
+            resultsDisplay.textContent = `${playerSelection} vs ${computerSelection}. It's a tie!`;
             break;
         //Result code "player" == player wins
         case "player":
-            resultsDisplay.textContent = `You win! ${playerSelection} beats ${computerSelection}`;
+            resultsDisplay.textContent = `${playerSelection} vs ${computerSelection}. Player wins this round!`;
             playerScore += 1;
             break;
         //Result code "computer" == computer wins
         case "computer":
-            resultsDisplay.textContent = `You lose! ${computerSelection} beats ${playerSelection}`;
+            resultsDisplay.textContent = `${playerSelection} vs ${computerSelection}. Computer wins this round!`;
             computerScore += 1;
             break;
     }
@@ -109,10 +109,12 @@ function game(event) {
     if (playerScore === 5 || computerScore === 5) {
         resetButton.classList.remove('hide');
         if (playerScore >= computerScore) {
-            finalResultDisplay.textContent = "You win!";
+            finalResultDisplay.textContent = "Player wins!";
+            finalResultDisplay.style.color = "green";
         }
         else {
-            finalResultDisplay.textContent = "You lose!";
+            finalResultDisplay.textContent = "Computer wins.";
+            finalResultDisplay.style.color = "red";
         }
         buttons.forEach((button) => button.removeEventListener('click', game));
     }
