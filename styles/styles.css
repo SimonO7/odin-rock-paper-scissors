@@ -55,6 +55,11 @@ body {
 
 #reset-button {
     text-align: center;
+    background-color:#3882F6;
+    color: #E5E7EB;
+    padding: 10px;
+    border-radius: 10px;
+    border-color: #3882F6;
 }
 
 .selections {
@@ -68,4 +73,8 @@ body {
 #computerSelection {
     height: 150px;
     width: 150px;
+}
+
+.finalResult {
+    margin: 10px;
 }
