@@ -6,6 +6,8 @@ body {
     flex-direction: column;
     justify-content: space-between;
     font-family: Arial, Helvetica, sans-serif;
+    min-height: 100vh;
+    margin: 0;
 }
 
 .header {
@@ -86,7 +88,7 @@ body {
 
 .finalResults {
     width: auto;
-    height: 150px;
+    height: 100px;
     margin: 10px;
 }
 
@@ -94,6 +96,7 @@ body {
     text-align: center;
     font-size: 12px;
     margin-top: auto;
+    padding: 10px;
 }
 
 .hide {
